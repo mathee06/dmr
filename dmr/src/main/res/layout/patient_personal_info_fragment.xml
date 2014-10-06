@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="First Name"
+            android:id="@+id/firstNameLabel"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstNameEdit"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/firstNameLabel"
+            android:layout_alignParentLeft="true"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Last Name"
+            android:id="@+id/lastNameLabel"
+            android:layout_below="@+id/firstNameEdit"
+            android:layout_alignLeft="@+id/firstNameEdit" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lastNameEdit"
+            android:layout_below="@+id/lastNameLabel"
+            android:layout_alignLeft="@+id/lastNameLabel"
+            android:layout_alignRight="@+id/firstNameEdit"
+            android:layout_marginBottom="5dp"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Address"
+            android:id="@+id/addressLabel"
+            android:layout_below="@+id/lastNameEdit"
+            android:layout_alignLeft="@+id/lastNameEdit" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addressEdit"
+            android:layout_below="@+id/addressLabel"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/lastNameEdit"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="City"
+            android:id="@+id/cityLabel"
+            android:layout_below="@+id/addressEdit"
+            android:layout_alignLeft="@+id/addressEdit" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cityEdit"
+            android:layout_below="@+id/cityLabel"
+            android:layout_alignRight="@+id/addressEdit"
+            android:layout_alignLeft="@+id/cityLabel"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Province"
+            android:id="@+id/provinceLabel"
+            android:layout_below="@+id/cityEdit"
+            android:layout_alignLeft="@+id/cityEdit" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/provinceSpinner"
+            android:spinnerMode="dialog"
+            android:layout_below="@+id/provinceLabel"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Postal Code"
+            android:id="@+id/postalCodeLabel"
+            android:layout_below="@+id/provinceSpinner"
+            android:layout_alignLeft="@+id/provinceSpinner" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/postalCodeEdit"
+            android:layout_below="@+id/postalCodeLabel"
+            android:layout_alignLeft="@+id/postalCodeLabel"
+            android:layout_alignRight="@+id/cityEdit"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Phone Number"
+            android:id="@+id/phoneNumberLabel"
+            android:layout_below="@+id/postalCodeEdit"
+            android:layout_alignLeft="@+id/postalCodeEdit" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/phoneNumberEdit"
+            android:layout_below="@+id/phoneNumberLabel"
+            android:layout_alignLeft="@+id/phoneNumberLabel"
+            android:layout_alignRight="@+id/postalCodeEdit"
+            android:singleLine="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Personal Information"
+            android:id="@+id/editButton"
+            android:layout_below="@+id/phoneNumberEdit"
+            android:layout_alignRight="@+id/phoneNumberEdit"
+            android:layout_alignLeft="@+id/phoneNumberEdit" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/saveButton"
+            android:layout_below="@+id/phoneNumberEdit"
+            android:layout_alignRight="@+id/phoneNumberEdit"
+            android:minWidth="185dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/cancelButton"
+            android:layout_below="@+id/phoneNumberEdit"
+            android:layout_alignTop="@+id/editButton"
+            android:layout_alignLeft="@+id/editButton"
+            android:layout_toLeftOf="@+id/saveButton" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>

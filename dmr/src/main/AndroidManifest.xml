@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.appspot.dmrserver"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <!-- GCM connects to Google Services. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="com.appspot.dmrserver.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <permission android:name="com.appspot.dmrserver.permission.C2D_MESSAGE" />
+
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- Near field communications permissions -->
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.appspot.dmrserver.LoginActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="vnd.android.nfc" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.appspot.dmrserver.MESSAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name="com.pushbots.push.PBMsg"/>
+        <activity android:name="com.pushbots.push.PBListener"/>
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.appspot.dmrserver" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.pushbots.push.MsgReceiver" />
+        <service android:name="com.pushbots.push.GCMIntentService" />
+        <service android:name="org.openudid.OpenUDID_service" >
+            <intent-filter>
+                <action android:name="org.openudid.GETUDID" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".TestActivity" />
+        <!--activity android:name=".PatientActivity" /-->
+        <activity android:name=".ViewPersonalInfoActivity" />
+        <activity android:name=".PatientViewInfo" />
+        <activity android:name=".Logout" />
+        <activity android:name=".PatientApptActivity" />
+        <activity android:name=".NurseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PatGraphActivity"/>
+        <activity android:name=".AdminUserListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DoctorApptActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DoctorRequestAccessActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DoctorAddTaskActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DoctorAddRecordActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DoctorViewRecordActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SecretaryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SecretaryDoctorAppt"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AdminAddNewUserPatInfo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AdminAddNewUserActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SecretaryAddAppt"
+            android:screenOrientation="portrait"/>
+
+
+
+    </application>
+
+</manifest>
